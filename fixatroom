@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fixstroom</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    nav { background: #333; color: white; padding: 10px; display: flex; gap: 15px; align-items: center; flex-wrap: wrap; }
+    nav a, nav select { color: white; text-decoration: none; background: none; border: none; font-size: 16px; }
+    section { padding: 20px; }
+    footer { background: #eee; text-align: center; padding: 15px; }
+    .social a { margin-right: 10px; text-decoration: none; font-size: 18px; }
+    .social .whatsapp { color: green; font-weight: bold; }
+    #cookieConsent {
+      position: fixed; bottom: 0; width: 100%;
+      background: #222; color: white; padding: 15px; text-align: center;
+      display: none;
+    }
+    form input, form button { margin-top: 10px; padding: 8px; width: 100%; max-width: 400px; }
+  </style>
+</head>
+<body>
+
+<!-- Menü + Dil Seçimi -->
+<nav>
+  <select id="languageSelect" onchange="changeLanguage(this.value)">
+    <option value="tr" selected>Türkçe</option>
+    <option value="nl">Nederlands (Hollandaca)</option>
+    <option value="fr">Français (Fransızca)</option>
+  </select>
+  <a href="#anasayfa">Anasayfa</a>
+  <a href="#makaleler">Makale</a>
+  <a href="#galeri">Galeri</a>
+  <a href="#sorucevap">Soru-Cevap</a>
+  <a href="#randevu">Randevu</a>
+  <a href="#iletisim">İletişim</a>
+</nav>
+
+<!-- Anasayfa -->
+<section id="anasayfa">
+  <h1>Fixstroom’a Hoş Geldiniz</h1>
+  <p>Belçika’da elektrik tadilatı ve arıza çözümlerinde uzmanız.</p>
+</section>
+
+<!-- Makale -->
+<section id="makaleler">
+  <h2>Makaleler</h2>
+  <p>Yakında elektrikle ilgili bilgilendirici makaleler burada yer alacak.</p>
+</section>
+
+<!-- Galeri -->
+<section id="galeri">
+  <h2>Galeri</h2>
+  <p>Yapılan projelerden örnek fotoğraflar burada yer alacak.</p>
+</section>
+
+<!-- Soru Cevap -->
+<section id="sorucevap">
+  <h2>Sık Sorulan Sorular</h2>
+  <p>Soru-cevap bölümü yakında aktif olacaktır.</p>
+</section>
+
+<!-- Randevu -->
+<section id="randevu">
+  <h2>Randevu Talebi</h2>
+  <p>Lütfen randevu tarihini <strong>Gün.Ay.Yıl Saat:dk</strong> formatında seçiniz.</p>
+  <form action="https://formsubmit.co/zaferhelvaci12@gmail.com" method="POST">
+    <label for="ad">Ad Soyad:</label><br />
+    <input type="text" id="ad" name="ad" required /><br />
+    <label for="tarih">Randevu Tarihi ve Saati:</label><br />
+    <input type="datetime-local" id="tarih" name="tarih" required /><br />
+    <input type="hidden" name="_subject" value="Yeni Randevu Talebi" />
+    <input type="hidden" name="_captcha" value="false" />
+    <button type="submit">Randevu Gönder</button>
+  </form>
+</section>
+
+<!-- İletişim + Sosyal Medya -->
+<section id="iletisim">
+  <h2>İletişim</h2>
+  <p>Telefon: <a href="tel:+32470996364">+32 470 99 63 64</a></p>
+  <p>E-posta: <a href="mailto:zaferhelvaci12@gmail.com">zaferhelvaci12@gmail.com</a></p>
+  <div class="social">
+    <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+    <a href="https://twitter.com" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://wa.me/32470996364" target="_blank" class="whatsapp" title="WhatsApp">WhatsApp</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>Adres: Rue de Example 12, 1000 Bruxelles, Belgium</p>
+  <p>&copy; 2025 Fixstroom. Tüm hakları saklıdır.</p>
+</footer>
+
+<!-- Çerez Uyarısı -->
+<div id="cookieConsent">
+  Bu site çerez kullanır. Siteyi kullanarak kabul etmiş olursunuz.
+  <button onclick="acceptCookies()" style="margin-left:15px; padding:5px 10px; cursor:pointer;">Kapat</button>
+</div>
+
+<script>
+  function changeLanguage(lang) {
+    alert('Dil seçimi: ' + lang + '. Çok dilli içerik daha sonra eklenecek.');
+  }
+
+  function acceptCookies() {
+    localStorage.setItem('cookieAccepted', 'true');
+    document.getElementById('cookieConsent').style.display = 'none';
+  }
+
+  window.onload = function() {
+    if(!localStorage.getItem('cookieAccepted')) {
+      document.getElementById('cookieConsent').style.display = 'block';
+    }
+  };
+</script>
+
+</body>
+</html>
